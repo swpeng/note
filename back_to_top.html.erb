@@ -1,0 +1,34 @@
+<style>
+  #rcc_top_box{position: fixed;_position:absolute;bottom: 15px;right: 3px;border: 1px solid #ccc;border-radius: 2px;
+    height: 80px;width: 22px;line-height: 13px;text-align: center;text-decoration: none;background-color: #f2f2f2;
+    color: #808080;padding-top:8px;opacity:.9;filter:alpha(opacity=90);visibility: hidden;}
+</style>
+<a href="javascript:void(0)" onclick="window.scroll(0,0)" id="rcc_top_box">
+  <div style="margin-bottom: 5px;">▲</div>
+  <div>返回顶部</div>
+</a>
+<script type="text/javascript">
+  (function(){
+    var d = document.body||document.documentElement
+    var top_box = $('rcc_top_box')
+    var is_ie = navigator.userAgent.toLowerCase().indexOf('msie')!=-1
+
+    if(document.addEventListener){
+      window.addEventListener('scroll',toggle_rcc_top_box,false)
+    }else{
+      window.attachEvent('onscroll',toggle_rcc_top_box)
+    }
+
+    function toggle_rcc_top_box(){
+      if(d.scrollTop > 100){
+        top_box.style.visibility = 'visible'
+        if(is_ie){
+          top_box.style.top = (d.scrollTop + d.clientHeight/2)+'px'
+        }
+      }else{
+        top_box.style.visibility = 'hidden'
+      }
+    }
+
+  })()
+</script>
